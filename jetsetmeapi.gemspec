@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "jetsetmeapi"
   gem.require_paths = ["lib"]
   gem.version       = Jetsetmeapi::VERSION
+
+   gem.add_dependency "httparty"
 end
