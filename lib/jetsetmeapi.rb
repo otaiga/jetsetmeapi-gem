@@ -37,9 +37,7 @@ module Jetsetmeapi
 protected
 
   def self.load_parameters
-    if DEVID || APPID == nil
-      return false
-    else
+    if DEVID && APPID
       return true
     end
   end
