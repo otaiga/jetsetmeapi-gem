@@ -27,6 +27,12 @@ module Jetsetmeapi
     if load_parameters
       response = HTTParty.post(CONFIRMPATH, :headers => @HEADERS, :body => {:pin => pin, :token => token}.to_json)
       key = JSON.parse(response)["auth_key"]
+      error = JSON.parse(response)["error"] unless nil
+      unless key == nil
+        return key
+      else
+        return {:error => error}
+      end
     else
       return {:error => "ERROR not all variables found"}
     end
