@@ -18,17 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
+  - Configuration:
+    - Jetsetmeapi::Config.dev_id = "YOUR_DEV_ID"
+    - Jetsetmeapi::Config.app_id = "YOUR_APP_ID"
+
 Commands are as follows:
 
   - `Jetsetmeapi.get_auth_token(phone_number)`
     - Returns a token or error as `{:error => error}`
   - `Jetsetmeapi.get_auth_key(pin, token)` : gets an auth key.
     - Returns the auth_key
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
