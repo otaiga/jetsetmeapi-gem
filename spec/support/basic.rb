@@ -35,6 +35,10 @@ def confirm_url
   "https://api.jetsetme.com/authentication/confirm_token"
 end
 
+def customer_url
+  "https://api.jetsetme.com/customer_status"
+end
+
 def headers
   {"X-DEVID"=> given_dev_id, "X-APPID"=> given_app_id, "Content-type"=>"application/json"}
 end
