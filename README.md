@@ -26,5 +26,7 @@ Commands are as follows:
 
   - `Jetsetmeapi.get_auth_token(phone_number)`
     - Returns a token or error as `{:error => error}`
-  - `Jetsetmeapi.get_auth_key(pin, token)` : gets an auth key.
+  - `Jetsetmeapi.get_auth_key(pin, token)`
     - Returns the auth_key
+  - `Jetsetmeapi.get_customer_status(auth_key)` 
+    -Returns roaming status.
