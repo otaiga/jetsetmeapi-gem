@@ -42,8 +42,8 @@ module Jetsetmeapi
   def self.get_customer_status(auth_key)
     if load_parameters
       response = HTTParty.post(CUSTOMERSTATUSPATH, :headers => @HEADERS, :body => {:auth_key => auth_key}.to_json)
-      status = JSON.parse(response)["roaming"]
-      error = JSON.parse(response)["error"] unless nil
+      status = response.body
+      error = JSON.parse(response)["error"] unless nil || !response.kind_of?(Hash)
       unless status == nil
         return status
       else

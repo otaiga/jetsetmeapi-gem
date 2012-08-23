@@ -21,9 +21,11 @@ describe "Jetsetmeapi" do
 
     before(:each) do
       load_creds
+      mock_response = mock("http_fake")
+      mock_response.stub(:body).and_return("true")
       HTTParty.stub(:post).with(auth_url, :headers => headers, :body => {:msisdn => given_msisdn}.to_json).and_return({:token => given_token}.to_json)
       HTTParty.stub(:post).with(confirm_url, :headers => headers, :body => {:pin => given_pin, :token => given_token}.to_json).and_return({:auth_key => given_auth_key}.to_json)
-      HTTParty.stub(:post).with(customer_url, :headers => headers, :body => {:auth_key => given_auth_key}.to_json).and_return({:roaming => "true"}.to_json)
+      HTTParty.stub(:post).with(customer_url, :headers => headers, :body => {:auth_key => given_auth_key}.to_json).and_return(mock_response)
 
     end
     
@@ -44,9 +46,11 @@ describe "Jetsetmeapi" do
 
     before(:each) do
       load_creds
+      mock_response = mock("http_fake")
+      mock_response.stub(:body).and_return({:error => "bad auth key"})
       HTTParty.stub(:post).with(auth_url, :headers => headers, :body => {:msisdn => given_msisdn}.to_json).and_return({:error => "invalid MSISDN"}.to_json)
       HTTParty.stub(:post).with(confirm_url, :headers => headers, :body => {:pin => given_pin, :token => given_token}.to_json).and_return({:error => "bad request, not authorised token"}.to_json)
-      HTTParty.stub(:post).with(customer_url, :headers => headers, :body => {:auth_key => given_auth_key}.to_json).and_return({:error => "bad auth key"}.to_json)
+      HTTParty.stub(:post).with(customer_url, :headers => headers, :body => {:auth_key => given_auth_key}.to_json).and_return(mock_response)
 
     end
     
