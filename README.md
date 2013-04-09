@@ -2,7 +2,7 @@
 
 This is a gem to use with the jetsetme api. At the moment, it only allows auth requests.
 
-***Note: *** This is NOT an offical Gem of JETSETME.
+*** Note: *** This is NOT an offical Gem of JETSETME.
 
 ## Installation
 
